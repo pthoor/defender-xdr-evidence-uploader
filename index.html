@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload to Azure Blob Storage</title>
+</head>
+<body>
+    <h1>Upload a file to Azure Blob Storage</h1>
+    <input type="file" id="fileInput" />
+    <button onclick="uploadFile()">Upload</button>
+
+    <script>
+        async function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            if (!fileInput.files.length) {
+                alert('Please select a file.');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const sasUrl = '<YourBlobServiceUrl>?<YourSASToken>'; // Replace with your Blob service URL and SAS token
+            const containerName = '<YourContainerName>'; // Replace with your container name
+
+            const blobUrl = `${sasUrl}/${containerName}/${file.name}`;
+            const response = await fetch(blobUrl, {
+                method: 'PUT',
+                headers: {
+                    'x-ms-blob-type': 'BlockBlob',
+                    'Content-Type': file.type,
+                },
+                body: file,
+            });
+
+            if (response.ok) {
+                alert('File uploaded successfully.');
+            } else {
+                alert('Failed to upload file.');
+            }
+        }
+    </script>
+</body>
+</html>
