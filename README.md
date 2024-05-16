@@ -13,7 +13,7 @@ This repository contains the code and infrastructure to deploy a simple website 
 
 Click the button below to deploy this solution to your Azure subscription.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https://raw.githubusercontent.com/pthoor/defender-xdr-evidence-uploader/main/staticwebapp.bicep)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https://raw.githubusercontent.com/pthoor/defender-xdr-evidence-uploader/main/deploy/main.json)
 
 ## Getting Started
 
